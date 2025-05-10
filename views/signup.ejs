@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <link rel="stylesheet" href="/signup.css" />
+
+    <style>
+      body {
+        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+      }
+    </style>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Signup</title>
+  </head>
+  <body>
+    <h1 id="signup">Signup</h1>
+    <form action="/user" method="post"> 
+      <!-- http://localhost:8001/signup   jse hi yh run hoga yh signup page chljaega frr yha action /user likha to yh /user wale sare route run krdega check in routes user.js-->
+      <label>Full Name</label>
+      <input type="text" required name="name" />
+      <label>Email</label>
+      <input type="text" required name="email" />
+      <label>Password</label>
+      <input type="text" required name="password" />
+
+      <button type="submit">Signup</button>
+    </form>
+
+    <% if (locals.error) { %>
+      <script>
+        alert("Email already registered. Please log in.");
+        window.location.href = "/login"; // redirect after alert OK
+      </script>
+    <% } %>
+    
+  </body>
+</html>
