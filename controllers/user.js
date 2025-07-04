@@ -40,8 +40,8 @@ async function handleUserLogin(req, res) {
   
 
     const token = setUser(user);
-    res.cookie("uid", token);
-    return res.redirect("/");
+    res.cookie("uid", token);//cookie parser
+    return res.redirect("/"); //go to static routrt
 
   } catch (err) {
     console.error("Login Error:", err);
@@ -50,8 +50,14 @@ async function handleUserLogin(req, res) {
     });
   }
 }
+async function handleLogout(req, res) {
+    res.clearCookie("uid"); // remove the token from cookie
+  return res.redirect("/login"); // redirect to login page
+
+}// jse hi login k button
 
 module.exports = {
   handleUserSignup,
   handleUserLogin,
+  handleLogout
 };
